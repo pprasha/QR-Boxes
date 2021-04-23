@@ -8,6 +8,7 @@ const items = [];
 //     {item}
 //   </li>
 // );
+const itemsCopy = [];
 
 function List({ item, index, removeItem }) {
   return (
@@ -23,31 +24,37 @@ function List({ item, index, removeItem }) {
   );
 }
 
-function Home() {
-
+function Home() { 
   function generate_qr_code(items) {
     var axios = require('axios');
-    var data = '{"list": ' + JSON.stringify(items) + '}';
-    var config = {
-      method: 'POST',
-      url: 'http://127.0.0.1:8000/items/',
-      headers: { 
-        'Content-Type': 'text/plain'
-      },
-      data : data
-    };
-    console.log(config)
-
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      listItems.length = 1;
-    })
-    .catch(function (error) {
-      console.log(error);
-    });   
+    if (itemsCopy != items){
+      var data = '{"list": ' + JSON.stringify(items) + '}';
+      var config = {
+        method: 'POST',
+        url: 'http://127.0.0.1:8000/items/',
+        headers: { 
+          'Content-Type': 'text/plain'
+        },
+        data : data
+      };
+      console.log(config)
+    
+      axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        itemsCopy = [...items];
+        items.length = 0;
+        const newItem = [    {
+          text: "This is an sample item. (Will not be attached to generated code.)"
+        }];
+        setItems(newItem);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); 
+    }    
   }
-  
+
   const [value, setValue] = React.useState("");
   const [listItems, setItems] = React.useState([
     {
