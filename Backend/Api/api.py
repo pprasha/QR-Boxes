@@ -43,8 +43,8 @@ def create_qr_code(items: Items):
         box_id = box_id.fetchone()
         box_id = box_id[0]
         con.execute("INSERT INTO data (box_id, list_data, created_at, updated_at) VALUES (\"" + str(box_id) + "\" , \"" + str(items) + "\", now(), now());")
-        print(items, box_id)
-        return {"box_id:" + box_id}
+        # print(items, box_id)
+        return {box_id}
 
 # box_id = con.execute("SELECT box_id From data WHERE list_data=\"" + str(items) +"\";")
 # for row in result:
