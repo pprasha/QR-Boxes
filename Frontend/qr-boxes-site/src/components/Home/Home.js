@@ -101,11 +101,7 @@ function Home() {
       text: "This is an sample item. (Will not be attached to generated code.)"
     }
   ])
-  const [response, setResponse] = React.useState([
-    {
-      id: ""
-    }
-  ])
+  const [response, setResponse] = React.useState("");
 
   const handleList = e => {  
     e.preventDefault();
