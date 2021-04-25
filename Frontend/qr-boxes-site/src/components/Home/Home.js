@@ -8,8 +8,8 @@ const items = [];
 //     {item}
 //   </li>
 // );
-// var itemsCopy;
-const box_url = "127.0.0.1:8000/box/"
+const itemsCopy = [];
+// const box_url = "127.0.0.1:8000/box/"
 
 function List({ item, index, removeItem }) {
   return (
@@ -24,6 +24,15 @@ function List({ item, index, removeItem }) {
     </div>
   );
 }
+
+// function Output({item}) {
+//   return (
+//     <div className="output">
+//       <h3>Output:</h3>
+//       <h4>Box Id: {item.id}</h4>
+//     </div>
+//   )
+// }
 
 // function Output(id){
 //   var QRCode = require('qrcode.react');
@@ -40,38 +49,50 @@ function List({ item, index, removeItem }) {
 // }
 
 function Home() { 
+
+  const equals = (a, b) =>
+    a.length === b.length &&
+    a.every((v, i) => v === b[i]);
+  
   function generate_code(items) {
     var axios = require('axios');
-    // if (itemsCopy !== items){
-    var data = '{"list": ' + JSON.stringify(items) + '}';
-    var config = {
-      method: 'POST',
-      url: 'http://127.0.0.1:8000/items/',
-      headers: { 
-        'Content-Type': 'text/plain'
-      },
-      data : data
-    };
-    // console.log(config)
-  
-    axios(config)
-    .then(function (response) {
-      console.log(JSON.stringify(response.data));
-      // itemsCopy = [...items];
+    // ! gives opposite Boolean
+    if (items.length !== 0 && !equals(itemsCopy, items)){
+      var data = '{"list": ' + JSON.stringify(items) + '}';
+      var config = {
+        method: 'POST',
+        url: 'http://127.0.0.1:8000/items/',
+        headers: { 
+          'Content-Type': 'text/plain'
+        },
+        data : data
+      };
+      // console.log(config)
+    
+      axios(config)
+      .then(function (response) {
+        for (var i = 0; i < items.length; i++) {
+          itemsCopy[i] = items[i];
+        }
+        items.length = 0;
+        const newItem = [    {
+          text: "This is an sample item. (Will not be attached to generated code.)"
+        }];
+        setItems(newItem);
+        const id = JSON.stringify(response.data[0])
+        console.log(id)
+        setResponse(id);
+      })
+      .catch(function (error) {
+        console.log(error);
+      }); 
+    } else {
       items.length = 0;
       const newItem = [    {
         text: "This is an sample item. (Will not be attached to generated code.)"
       }];
       setItems(newItem);
-      console.log("bye");
-      const id = JSON.stringify(response.data[0])
-      console.log(id)
-      setResponse(id);
-    })
-    .catch(function (error) {
-      console.log(error);
-    }); 
-    // }    
+    }    
   }
 
   const [value, setValue] = React.useState("");
@@ -126,7 +147,7 @@ function Home() {
         <Form.Group>
           <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" />
           <button className="add" type="submit">
-            Submit
+            Add
           </button>
         </Form.Group>
       </Form>
@@ -149,13 +170,18 @@ function Home() {
             Generate Code
           </button>
       </div>
-      <div className="output">
-        <h3>Output:</h3>
-        <h3>Box Id: {response.id}</h3>
+      {/* <div>
+        {listItems.map((item, index) => (
+          <Output
+            key={index}
+            item={item}
+          />
+        ))}
+      </div> */}
+        {/* <h3>Box Id: {response.item}</h3> */}
         {/* <h4>Box Url: <a>{box_url + response.id}</a></h4> */}
         {/* <h4>QR Code:</h4> */}
         {/* <QRCode value={box_url + id} /> */}
-      </div>
       {/* <Form className="generate_qr_code" onSubmit={generate_qr_code(items)}> 
         <Form.Group>
           <button type="submit">
