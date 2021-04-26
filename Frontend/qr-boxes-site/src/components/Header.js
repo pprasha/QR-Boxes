@@ -6,10 +6,11 @@ function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light">
         {/* <a class="navbar-brand" href="#">Navbar</a> */}
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        {/* Below for Responsive Nav bar. Remember to close the div tag at the end for Reponsive Nav to work. */}
+        {/* <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
         </button>
-        <div className="collapse navbar-collapse centerNav" id="navbarNav">
+        <div className="collapse navbar-collapse centerNav" id="navbarNav"> */}
             <ul className="navbar-nav mx-auto">
                 <li key="Home" className="nav-item active">
                     <Link className="nav-link " to="/">
@@ -44,7 +45,7 @@ function Header() {
                     </Link>
                 </li>
             </ul> */}
-        </div>
+        {/* </div> */}
         </nav>
     );
 }

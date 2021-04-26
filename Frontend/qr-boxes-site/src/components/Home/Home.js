@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
+import ReactToPrint from 'react-to-print';
+import QRCode from "qrcode.react";
 import {Form, Card, Button} from 'react-bootstrap';
+// import Output from './Output/Output';
 import "./Home.css"
 
 const items = [];
@@ -9,7 +12,21 @@ const items = [];
 //   </li>
 // );
 const itemsCopy = [];
-// const box_url = "127.0.0.1:8000/box/"
+const box_url = "http://127.0.0.1:8000/box/"
+
+
+class Output extends React.Component {
+  render() {
+    return (
+    <div className="output">
+      <h4>Box Id: {this.props.response}</h4>
+      <h4>Box Url: <a href={box_url + this.props.response}> {box_url + this.props.response}</a></h4>
+      <h4>QR Code:</h4>
+      <QRCode value={box_url + this.props.response} />
+    </div>
+    );
+  }
+}
 
 function List({ item, index, removeItem }) {
   return (
@@ -49,7 +66,6 @@ function List({ item, index, removeItem }) {
 // }
 
 function Home() { 
-
   const equals = (a, b) =>
     a.length === b.length &&
     a.every((v, i) => v === b[i]);
@@ -79,8 +95,7 @@ function Home() {
           text: "This is an sample item. (Will not be attached to generated code.)"
         }];
         setItems(newItem);
-        const id = JSON.stringify(response.data[0])
-        console.log(id)
+        const id = (JSON.stringify(response.data[0])).replace(/"/g, ""); // RegEx to match `"` characters, with `g` for globally (instead of once)
         setResponse(id);
       })
       .catch(function (error) {
@@ -95,6 +110,7 @@ function Home() {
     }    
   }
 
+  const componentRef = useRef();
   const [value, setValue] = React.useState("");
   const [listItems, setItems] = React.useState([
     {
@@ -166,6 +182,24 @@ function Home() {
             Generate Code
           </button>
       </div>
+      <div>
+        <h3 className="output">Output:</h3>
+        <Output ref={componentRef} response={response} />
+        <ReactToPrint
+          trigger={() => <button>Print this out!</button>}
+          content={() => componentRef.current}
+        />
+      </div>
+
+      {/* <div className="output">
+       <h3>Output:</h3>
+       <h4>Box Id: {response}</h4>
+       <h4>Box Url: <a>{box_url + response}</a></h4>
+       <h4>QR Code:</h4>
+       <QRCode value={box_url + response} />
+      </div> */}
+
+
       {/* <div>
         {listItems.map((item, index) => (
           <Output
