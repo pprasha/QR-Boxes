@@ -4,6 +4,7 @@ import './App.css';
 // import logo from './logo.svg';
 import Header from "./Header";
 import Home from "./Home/Home";
+import Box from "./Box/Box";
 // import Pricing from "./Pricing/Pricing";
 // import Login from "./Login/Login";
 // import Signup from "./Sign Up/Signup";
@@ -34,6 +35,10 @@ function App() {
           <Header />
           <Pricing />
         </Route> */}
+        <Route path="/box">
+          <Header />
+          <Box />
+        </Route>
         <Route path="/">
           <Header />
           <Home />

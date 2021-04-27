@@ -30,6 +30,16 @@ def check(string):
   else:
     return True  
 
+@app.get("/box/{box_id}")
+async def read_item(box_id):
+    if check(box_id) == False:
+        return ["error", "Invalied ID (700)"]
+    else:
+        items = con.execute("SELECT list_data FROM data WHERE box_id=\"" + box_id + "\";")
+        items = items.fetchone()
+        items = items[0]
+        return {items}
+
 class Items(BaseModel):
     list: list
 
@@ -42,6 +52,7 @@ def create_qr_code(items: Items):
         box_id = con.execute("SELECT UUID();")
         box_id = box_id.fetchone()
         box_id = box_id[0]
+        items = str(items)[5:]
         con.execute("INSERT INTO data (box_id, list_data, created_at, updated_at) VALUES (\"" + str(box_id) + "\" , \"" + str(items) + "\", now(), now());")
         # print(items, box_id)
         return {box_id}

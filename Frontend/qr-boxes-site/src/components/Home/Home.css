@@ -1,10 +1,14 @@
 h1{
-    text-align: center;
+    /* text-align: center; */
     padding-top: 1ch;
 }
 
-h3{
+/* h3{
     text-align: center;
+} */
+
+* {
+  text-align: center;
 }
 
 /* Bouncing Down Arrow */
@@ -54,12 +58,12 @@ h3{
 }
 
 .add_list_data {
-    margin-left: 40%;
+    /* margin-left: 40%; */
     padding-top: 2.5ch;
 }
 
 button {
-    width: 35%;
+    width: 38%;
     background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
@@ -73,12 +77,12 @@ button:hover {
     background-color: #45a049;
 }
 
-.generate_qr_code {
+/* .generate_qr_code {
     margin-left: 40%;
-}
+} */
 
 .add {
-    width: 12%;
+    width: 15%;
 }
 
 /* .output {

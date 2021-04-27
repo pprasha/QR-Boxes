@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import ReactToPrint from 'react-to-print';
 import QRCode from "qrcode.react";
 import {Form, Card, Button} from 'react-bootstrap';
-// import Output from './Output/Output';
 import "./Home.css"
 
 const items = [];
@@ -12,7 +11,7 @@ const items = [];
 //   </li>
 // );
 const itemsCopy = [];
-const box_url = "http://127.0.0.1:8000/box/"
+const box_url = "http://127.0.0.1:3000/box/"
 
 
 class Output extends React.Component {
@@ -155,7 +154,7 @@ function Home() {
           Add
         </button>
       </div> */}
-      <Form className="add_list_data" onSubmit={handleList}> 
+      <Form className="add_list_data form-inline" onSubmit={handleList}> 
         <Form.Group>
           <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" />
           <button className="add" type="submit">

@@ -1,0 +1,14 @@
+.logo {
+    padding: 0px;
+    /* margin-top: -30px;
+    margin-bottom: -30px; */
+    padding-left: 10px;
+    margin: auto;
+    /* Width and Height are built in to the <img> tag. So to change the dimentions of the logo go to the <img> tag in the Header.js file. */
+    /* width: "60px";
+    height: "60px"; */
+}
+
+/* .navbar {
+    height: 60px; 
+} */
