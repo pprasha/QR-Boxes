@@ -1,8 +1,12 @@
 import React, { useRef } from "react";
 import ReactToPrint from 'react-to-print';
 import QRCode from "qrcode.react";
+import Barcode from "react-barcode";
 import {Form, Card, Button} from 'react-bootstrap';
 import "./Home.css"
+
+const apiBaseUrl = "http://192.168.0.119:8000";
+const baseUrl = "http://192.168.0.119:3000";
 
 const items = [];
 // const listItems = items.map((item) =>
@@ -11,7 +15,7 @@ const items = [];
 //   </li>
 // );
 const itemsCopy = [];
-const box_url = "http://127.0.0.1:3000/box/"
+const box_url = baseUrl + "/box/"
 
 
 class Output extends React.Component {
@@ -22,6 +26,8 @@ class Output extends React.Component {
       <h4>Box Url: <a href={box_url + this.props.response}> {box_url + this.props.response}</a></h4>
       <h4>QR Code:</h4>
       <QRCode value={box_url + this.props.response} />
+      <h4>Barcode:</h4>
+      <Barcode value={box_url + this.props.response} />
     </div>
     );
   }
@@ -76,7 +82,7 @@ function Home() {
       var data = '{"list": ' + JSON.stringify(items) + '}';
       var config = {
         method: 'POST',
-        url: 'http://127.0.0.1:8000/items/',
+        url: apiBaseUrl +'/items/',
         headers: { 
           'Content-Type': 'text/plain'
         },
@@ -121,6 +127,7 @@ function Home() {
   const handleList = e => {  
     e.preventDefault();
     if (!value) return;
+    // console.log(value)
     addItem(value);
     setValue("");
   }

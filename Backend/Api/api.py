@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from sqlalchemy import create_engine
 
-engine = create_engine('mysql+mysqlconnector://qr_boxes:9PszVpg%QipJ4*p@zS6$gph&g%Qi@localhost/qr_boxes')
+engine = create_engine('mysql+mysqlconnector://qr_boxes:9PszVpg%QipJ4*p@zS6$gph&g%Qi@db/qr_boxes')
 
 con = engine#.connect() 
 
@@ -11,7 +11,12 @@ app = FastAPI()
 
 origins = [
     "http://localhost:3000",
-    "localhost:3000"
+    "localhost:3000",
+    "http://127.0.0.1:3000",
+    "127.0.0.1:3000",
+    "http://192.168.0.119:3000",
+    "192.168.0.119:3000",
+    "*"
 ]
 
 

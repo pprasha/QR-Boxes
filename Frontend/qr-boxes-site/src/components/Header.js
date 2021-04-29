@@ -55,35 +55,31 @@ function Header() {
         //     </ul> */}
         // </div>
         // </nav>
-
-        <Navbar bg="light" expand="lg">
-            <Navbar.Brand>
-                <Link className="nav-link logo" to="/">
-                    <img src={Logo} alt="QR Boxe's Logo" className="navbar-brand" width="60" height="60" />
-                    QR Boxes
-                </Link>
-            </Navbar.Brand>
-            <Navbar.Toggle aria-controls="basic-navbar-nav" />
-            <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="mx-auto navbar">
-                    <Nav.Link>
+        <div>
+            <Navbar bg="light" expand="lg">
+                <Navbar.Brand>
+                    <Link className="nav-link logo" to="/">
+                        <img src={Logo} alt="QR Boxe's Logo" className="navbar-brand" width="40" height="40" />
+                        QR Boxes
+                    </Link>
+                </Navbar.Brand>
+                <Navbar.Toggle className="mobile_nav" aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="mx-auto navbar">
+                        {/* <Nav.Link> */}
                         <Link className="nav-link " to="/">
                             Home
                         </Link>
-                    </Nav.Link>
-                    <Nav.Link>
+                        {/* </Nav.Link> */}
+                        {/* <Nav.Link> */}
                         <Link className="nav-link " to="/box">
                             Box
                         </Link>
-                    </Nav.Link>
-                </Nav>
-            </Navbar.Collapse>
-        </Navbar>
-        // <div>
-        //     <Switch>
-        //         <Route path="/box/:box_id" children={<Box />} />
-        //     </Switch>
-        // </div>
+                        {/* </Nav.Link> */}
+                    </Nav>
+                </Navbar.Collapse>
+            </Navbar>
+        </div>
     );
 }
 

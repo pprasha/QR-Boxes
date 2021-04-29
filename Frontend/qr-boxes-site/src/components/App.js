@@ -35,6 +35,10 @@ function App() {
           <Header />
           <Pricing />
         </Route> */}
+        <Route path="/box/:box_id">
+          <Header />
+          <Box />
+        </Route>
         <Route path="/box">
           <Header />
           <Box />
