@@ -8,7 +8,6 @@ services:
             - default
     db:
         image: mysql:latest
-        image: mysql:5.7
         restart: always
         environment:
           MYSQL_DATABASE: 'qr_boxes'
