@@ -10,7 +10,7 @@ services:
         image: mysql:latest
         restart: always
         environment:
-            MYSQL_ROOT_PASSWORD: '9PszVpg%QipJ4*p@zS6$gph&g%Qi'
+            MYSQL_ROOT_PASSWORD: 9PszVpg%QipJ4*p@zS6$gph&g%Qi
         ports:
             - '3306:3306'
             # - '3306'
