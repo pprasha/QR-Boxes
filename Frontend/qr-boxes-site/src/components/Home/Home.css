@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+}
+
 h1{
     /* text-align: center; */
     padding-top: 1ch;
@@ -86,5 +90,66 @@ button:hover {
 }
 
 /* .output {
-  margin-left: 30%;
+  padding-top: 15px;
+} */
+
+@page {
+  margin-top: 30px;
+}
+
+.boxUrl {
+  font-size: 19px;
+}
+
+.closeListItem {
+  border: 0px;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* 
+.modal {
+  color: rgba(0, 0, 0, 0.87);
+  background-color: rgb(255, 255, 255);
+  transition: all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms;
+
+  overflow: auto;
+  overflow-y: fixed;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1050;
+  -webkit-overflow-scrolling: touch;
+  outline: 0;
+  transform: translate(0, 0);
+  padding: 0;
+  width: 100%;
+  height: auto;
+}
+.modal-content {
+  position: relative;
+  background-color: #fff;
+  border: 1px solid #999;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  -webkit-box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+  background-clip: padding-box;
+  outline: 0;
+}
+.modal-body {
+  position: relative;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  padding: 0px;
 } */

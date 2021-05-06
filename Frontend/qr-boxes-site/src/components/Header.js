@@ -65,7 +65,7 @@ function Header() {
                 </Navbar.Brand>
                 <Navbar.Toggle className="mobile_nav" aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mx-auto navbar">
+                    <Nav className="navbar-nav abs-center-x">
                         {/* <Nav.Link> */}
                         <Link className="nav-link " to="/">
                             Home

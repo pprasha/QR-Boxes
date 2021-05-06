@@ -7,23 +7,37 @@
     /* Width and Height are built in to the <img> tag. So to change the dimentions of the logo go to the <img> tag in the Header.js file. */
     /* width: "60px";
     height: "60px"; */
+    color: #707071;
+}
+
+.nav-link:hover {
+    color: #3e4246;
 }
 
 .mobile_nav {
     margin-right: 10px;
 }
 
-.navbar {
-    /* color: #fff;
+/* .navbar {
+    color: #fff;
     display: flex;
     align-items: center;
     text-decoration: none;
     padding: 0 1rem;
     height: 100%;
     cursor: pointer;
-    align-items: center; */
-    
-    /* display: flex;
     align-items: center;
-    margin-right: -24px; */
+
+    display: flex;
+    align-items: center;
+    margin-right: -24px;
+
+} */
+
+@media (min-width: 567px) {
+    .abs-center-x {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

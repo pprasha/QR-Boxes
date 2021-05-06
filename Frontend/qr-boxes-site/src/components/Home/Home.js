@@ -20,14 +20,28 @@ const box_url = baseUrl + "/box/"
 
 class Output extends React.Component {
   render() {
+    if (this.props.response === "") {
+      var barcodeValue = "00000000";
+    } else {
+      // eslint-disable-next-line
+      var barcodeValue = this.props.response;
+    }
+    // eslint-disable-next-line
+    var barcodeValue = barcodeValue;
     return (
     <div className="output">
       <h4>Box Id: {this.props.response}</h4>
-      <h4>Box Url: <a href={box_url + this.props.response}> {box_url + this.props.response}</a></h4>
+      <h4>Box Url: <a class="boxUrl" href={box_url + this.props.response}> {box_url + this.props.response}</a></h4>
       <h4>QR Code:</h4>
       <QRCode value={box_url + this.props.response} />
       <h4>Barcode:</h4>
-      <Barcode value={box_url + this.props.response} />
+      <Barcode 
+      value={barcodeValue}
+      format="CODE39"
+      width={2.20}
+      height={90} 
+      fontSize={15}
+      />
     </div>
     );
   }
