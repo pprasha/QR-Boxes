@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import ReactToPrint from 'react-to-print';
 import QRCode from "qrcode.react";
 import Barcode from "react-barcode";
-import {Form, Card, Button} from 'react-bootstrap';
+import { Form, Card, Button } from 'react-bootstrap';
 import "./Home.css"
 
 const apiBaseUrl = "http://192.168.0.119:8000";
