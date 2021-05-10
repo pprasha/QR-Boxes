@@ -26,7 +26,7 @@ DROP TABLE IF EXISTS `data`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `data` (
   `box_id` varchar(45) NOT NULL,
-  `list_data` varchar(225) NOT NULL,
+  `list_data` varchar(500) NOT NULL,
   `created_at` timestamp(6) NOT NULL,
   `updated_at` timestamp(6) NOT NULL,
   PRIMARY KEY (`box_id`),
