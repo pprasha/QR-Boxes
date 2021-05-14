@@ -177,7 +177,7 @@ function Home() {
       </div> */}
       <Form className="add_list_data form-inline" onSubmit={handleList}> 
         <Form.Group>
-          <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" />
+          <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" autoFocus={true} />
           <button className="add" type="submit">
             Add
           </button>

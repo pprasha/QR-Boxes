@@ -1,11 +1,20 @@
 import React from "react";
-import { Nav, Navbar } from 'react-bootstrap';
-import { Link } from "react-router-dom";
+import { Nav, Navbar, Button } from 'react-bootstrap';
+import { Link, useHistory } from "react-router-dom";
 import Logo from "./logo.png";
 import "./bootstrap.css"
 import "./Header.css"
 
 function Header() {
+    const history = useHistory();
+
+    const LogIn = () => {
+        history.push("/login");
+    }
+    const SignUp = () => {
+        history.push("/signup");
+    }
+
     return (
         // <nav className="navbar navbar-expand-lg navbar-light bg-light">
         // {/* <a class="navbar-brand" href="#">Navbar</a> */}
@@ -76,7 +85,15 @@ function Header() {
                             Box
                         </Link>
                         {/* </Nav.Link> */}
-                    </Nav>
+                        <Link className="nav-link " to="/pricing">
+                            Pricing
+                        </Link>
+                    </Nav >
+                    <div className="navbar-left">
+                        <Button variant="success" className="signin" onClick={LogIn}>Log In</Button>{' '}
+                        <Button variant="success" className="signup" onClick={SignUp}>Sign Up</Button>{' '}
+                    </div>    
+
                 </Navbar.Collapse>
             </Navbar>
         </div>

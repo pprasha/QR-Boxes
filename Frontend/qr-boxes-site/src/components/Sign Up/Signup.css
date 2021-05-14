@@ -1,4 +1,18 @@
-.loginForm {
+/* .input {
+    width: 30%;
+} */
+
+/* form {
+    margin-left: 40%;
+    margin-top: 15%;
+}
+
+.submit-button {
+    width: 30%;
+    margin-top: 1%;
+} */
+
+.signUpForm {
     width: 400px;
     margin: 0 auto; 
     font-weight: bold;
@@ -18,8 +32,10 @@
 .card-form {
     border-radius: 25px;
     /* background: #4CAF50; */
-    padding: 20px;
-    /* width: 350px; */
+    /* padding: 20px; */
+    display:inline-block;
+    margin-bottom: 10px !important;
+    /* margin-bottom: 0px; */
 }
 
 .input {
@@ -27,29 +43,11 @@
 }
 
 .form-label {
-    display:block; text-align:left;
+    display:block; width:x; height:y; text-align:left;
 }
 
-.terms {
+.signup-terms {
     font-size: small;
-}
-
-.oauth {
-    width: 100%;
-    text-align: center;
-    background-color: rgb(255, 255, 255); display: inline-flex; align-items: center; color: rgba(0, 0, 0, 0.54); box-shadow: rgba(0, 0, 0, 0.24) 0px 2px 2px 0px, rgba(0, 0, 0, 0.24) 0px 0px 1px 0px; padding: 0px; border-radius: 2px; border: 1px solid transparent; font-size: 14px; font-weight: 500; font-family: Roboto, sans-serif;
-    /* height: 41px; */
-}
-
-i {
-    padding: 15px;
-    margin-right: 10px;
-    color: white;
-}
-
-.facebook-icon, .facebook-icon:hover {
-    background-color: #4267B2;
-    color: white;
 }
 
 .hr-sect {
@@ -68,4 +66,8 @@ i {
 	font-size: 0px;
 	line-height: 0px;
 	margin: 0px 8px;
+}
+
+.signUpEmail {
+    width: 100%;
 }

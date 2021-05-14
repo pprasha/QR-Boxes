@@ -9,30 +9,36 @@ import Header from "./Header";
 import Footer from "./Footer"
 import Home from "./Home/Home";
 import Box from "./Box/Box";
-// import Pricing from "./Pricing/Pricing";
-// import Login from "./Login/Login";
-// import Signup from "./Sign Up/Signup";
+import Pricing from "./Pricing/Pricing";
+import "./bootstrap.css"
+import Login from "./Login/Login";
+import Signup from "./Sign Up/Signup";
 // import Features from "./Features/Features";
 // import Support from "./Support/Support";
 
-function App() {
-  const [show, setShow] = React.useState(true);
+var alertShow = true;
 
+function AlertTerms() {
+  const [show, setShow] = React.useState(alertShow);
+  return (
+    <Alert className="alertTerms" show={show} variant="success">
+    <Alert.Heading>Terms and Conditions</Alert.Heading>
+    <p>
+      By using this website you agree to the terms and conditions of this site.
+    </p>
+    <hr />
+    <div className="d-flex justify-content-end">
+      <Button onClick={() => {setShow(false); alertShow = false;}} variant="outline-success">
+        Accept and Continue
+      </Button>
+    </div>
+    </Alert>
+  )
+}
+
+function App() {
   return (
     <div id="main">
-      <Alert className="alertTerms" show={show} variant="success">
-        <Alert.Heading>Terms and Conditions</Alert.Heading>
-        <p>
-          By using this website you agree to the terms and conditions of this site.
-        </p>
-        <hr />
-        <div className="d-flex justify-content-end">
-          <Button onClick={() => setShow(false)} variant="outline-success">
-            Accept and Continue
-          </Button>
-        </div>
-      </Alert>
-
       <Router>
         <Switch>
           {/* <Route path="/support">
@@ -42,42 +48,66 @@ function App() {
           <Route path="/features">
             <Header />
             <Features />
-          </Route>
-          <Route path="/sighnup">
-            <Header />
+          </Route> */}
+          <Route path="/signup">
+            {/* <Header /> */}
             <Signup />
+            {/* <Footer /> */}
           </Route>
           <Route path="/login">
-            <Header />
+            {/* <Header /> */}
             <Login />
           </Route>
           <Route path="/pricing">
+            <AlertTerms />
             <Header />
             <Pricing />
-          </Route> */}
-          <Route path="/box/:box_id">
-            <Header />
-            <Box />
             <Footer />
-          </Route>
-          <Route path="/box">
-            <Header />
-            <Box />
-            <Footer />
-          </Route>
-          <Route path="/">
-            <Header />
-            <Home />
-            <Footer />
-          </Route>
-        </Switch>
-      </Router>
-      <Feedback 
+            <Feedback 
       projectId="608c41141b4b9a00044fe6ac" 
       email="true" 
       emailRequired="true" 
       primaryColor="#4CAF50"
       />
+          </Route>
+          <Route path="/box/:box_id">
+            <AlertTerms />
+            <Header />
+            <Box />
+            <Footer />
+            <Feedback 
+      projectId="608c41141b4b9a00044fe6ac" 
+      email="true" 
+      emailRequired="true" 
+      primaryColor="#4CAF50"
+      />
+          </Route>
+          <Route path="/box">
+            <AlertTerms />
+            <Header />
+            <Box />
+            <Footer />
+            <Feedback 
+      projectId="608c41141b4b9a00044fe6ac" 
+      email="true" 
+      emailRequired="true" 
+      primaryColor="#4CAF50"
+      />
+          </Route>
+          <Route path="/">
+            <AlertTerms />
+            <Header />
+            <Home />
+            <Footer />
+            <Feedback 
+      projectId="608c41141b4b9a00044fe6ac" 
+      email="true" 
+      emailRequired="true" 
+      primaryColor="#4CAF50"
+      />
+          </Route>
+        </Switch>
+      </Router>
     </div>
   );
 }

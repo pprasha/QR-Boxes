@@ -147,8 +147,12 @@ function Box() {
         })
         .catch(function (error) {
           console.log(error);
+          setBoxId("");
           alert("Incorrect ID or the service is down.");
         });
+    } else {
+        setItems(listItems);
+        // document.getElementById("#content").select();
     }
   };
 
@@ -186,6 +190,7 @@ function Box() {
             value={boxId}
             onChange={(e) => setBoxId(e.target.value)}
             placeholder="Box Id"
+            autoFocus={true}
           />
           <button className="add" type="submit">
             Get
