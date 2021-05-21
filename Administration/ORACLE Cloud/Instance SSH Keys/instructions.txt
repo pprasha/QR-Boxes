@@ -1,0 +1,2 @@
+SSH Command for Instance once inside Private folder: 
+    ssh -i ssh-key-2021-04-29.key opc@150.136.123.119
