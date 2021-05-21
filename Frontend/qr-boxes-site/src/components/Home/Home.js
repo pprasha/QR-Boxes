@@ -5,8 +5,8 @@ import Barcode from "react-barcode";
 import { Form, Card, Button } from 'react-bootstrap';
 import "./Home.css"
 
-const apiBaseUrl = "http://192.168.0.119:8000";
-const baseUrl = "http://192.168.0.119:3000";
+const apiBaseUrl = "https://192.168.0.119:8000";
+const baseUrl = "https://192.168.0.119:3000";
 
 const items = [];
 // const listItems = items.map((item) =>

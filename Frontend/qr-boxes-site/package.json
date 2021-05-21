@@ -2,6 +2,7 @@
   "name": "qr-boxes",
   "version": "0.1.0",
   "private": true,
+  "proxy": "http://localhost:8000",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
@@ -15,6 +16,7 @@
     "react-dom": "^17.0.1",
     "react-facebook-login": "^4.1.1",
     "react-google-login": "^5.2.2",
+    "react-password-strength-bar": "^0.3.3",
     "react-pricing-table": "^0.3.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
@@ -24,7 +26,7 @@
     "yarn": "^1.22.10"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "export HTTPS=true && SSL_CRT_FILE=cert.pem&&SSL_KEY_FILE=key.pem react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

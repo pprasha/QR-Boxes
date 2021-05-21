@@ -13,7 +13,7 @@ function Home() {
       <div class="center">
       <GoogleLogin
         className="oauth"
-        clientId="658977310896-knrl3gka66fldh83dao2rhgbblmd4un9.apps.googleusercontent.com"
+        clientId="463592647963-sj2gq0f9vo9d2l0vgn53bt7p1phnb061.apps.googleusercontent.com"
         buttonText="Log in with Google"
         // onSuccess={}
         // onFailure={}

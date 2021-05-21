@@ -2,9 +2,9 @@ CREATE DATABASE  IF NOT EXISTS `qr_boxes` /*!40100 DEFAULT CHARACTER SET utf8mb4
 USE `qr_boxes`;
 -- MySQL dump 10.13  Distrib 8.0.22, for macos10.15 (x86_64)
 --
--- Host: 127.0.0.1    Database: qr_boxes
+-- Host: localhost    Database: qr_boxes
 -- ------------------------------------------------------
--- Server version	8.0.21
+-- Server version	8.0.23
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -18,19 +18,99 @@ USE `qr_boxes`;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `data`
+-- Table structure for table `box`
 --
 
-DROP TABLE IF EXISTS `data`;
+DROP TABLE IF EXISTS `box`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `data` (
+CREATE TABLE `box` (
+  `id` int NOT NULL AUTO_INCREMENT,
   `box_id` varchar(45) NOT NULL,
-  `list_data` varchar(225) NOT NULL,
-  `created_at` timestamp(6) NOT NULL,
-  `updated_at` timestamp(6) NOT NULL,
-  PRIMARY KEY (`box_id`),
+  `user_id` varchar(45) NOT NULL,
+  `list_box_data` varchar(500) NOT NULL,
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`,`box_id`),
   UNIQUE KEY `box_id_UNIQUE` (`box_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=64 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `log`
+--
+
+DROP TABLE IF EXISTS `log`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `log` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) NOT NULL,
+  `type` int NOT NULL,
+  `change` varchar(1000) NOT NULL,
+  `time` timestamp NOT NULL,
+  PRIMARY KEY (`id`,`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `plan`
+--
+
+DROP TABLE IF EXISTS `plan`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `plan` (
+  `plan_id` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `box_limit` int NOT NULL,
+  `price_per_month` int NOT NULL,
+  `price_per_year` int NOT NULL,
+  PRIMARY KEY (`plan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `subscription`
+--
+
+DROP TABLE IF EXISTS `subscription`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `subscription` (
+  `subscription_id` int NOT NULL,
+  `user_id` varchar(45) NOT NULL,
+  `plan_id` int NOT NULL,
+  `payment_provider` varchar(45) DEFAULT NULL,
+  `active` tinyint NOT NULL,
+  `created_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`subscription_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `user`
+--
+
+DROP TABLE IF EXISTS `user`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `user` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` varchar(45) NOT NULL,
+  `user_name` varchar(45) NOT NULL,
+  `name` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `phone_number` varchar(20) DEFAULT NULL,
+  `password` varchar(45) DEFAULT NULL,
+  `oauth_provider` varchar(45) DEFAULT NULL,
+  `oauth_provider_id` int DEFAULT NULL,
+  `profile_pic` longblob,
+  `boxes` int NOT NULL,
+  `subscription_id` varchar(45) NOT NULL,
+  `active` tinyint NOT NULL,
+  PRIMARY KEY (`id`,`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -43,4 +123,4 @@ CREATE TABLE `data` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-04-22 20:23:45
+-- Dump completed on 2021-05-21 13:58:46

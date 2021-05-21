@@ -21,7 +21,7 @@
 .submit-button {
     background-color: #4CAF50;
     border-radius: 25px;
-    width: 350px;
+    width: 100%;
     border: 0px;
 }
 
@@ -70,4 +70,25 @@
 
 .signUpEmail {
     width: 100%;
+}
+
+.pwd-container {
+    position: relative;
+}
+  
+/* .pwd-container input {
+    padding: 5px 30px 5px 10px;
+    font-size: 20px;
+} */
+  
+.pwd-container img {
+    cursor: pointer;
+    position: absolute;
+    width: 20px;
+    right: 10px;
+    bottom: 8px;
+}
+
+.infoSpan {
+    color: red;
 }
