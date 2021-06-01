@@ -69,7 +69,7 @@ function Header() {
                 <Navbar.Brand>
                     <Link className="nav-link logo" to="/">
                         <img src={Logo} alt="QR Boxe's Logo" className="navbar-brand" width="40" height="45" />
-                        QR Boxes
+                        QR Boxes <p className="beta">BETA</p>
                     </Link>
                 </Navbar.Brand>
                 <Navbar.Toggle className="mobile_nav" aria-controls="basic-navbar-nav" />

@@ -76,3 +76,8 @@
 .signup {
     background-color: #4CAF50;
 }
+
+.beta {
+    font-size: x-small;
+    display: inline;
+}

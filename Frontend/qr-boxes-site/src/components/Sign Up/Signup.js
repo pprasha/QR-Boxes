@@ -7,7 +7,7 @@ import "./Signup.css"
 import showPwdImg from './show-password.svg';
 import hidePwdImg from './hide-password.svg';
 
-const apiBaseUrl = "https://192.168.0.119:8000";
+const apiBaseUrl = "http://192.168.0.102:8000";
 var axios = require('axios');
 
 function Signup() {
@@ -105,9 +105,20 @@ function Signup() {
       );
   }
 
-  const handleGoogleOauth = (response) => {
+  const handleOauth = (response, value) => {
     console.log(response)
-    var data = '{\n  "name": "string",\n  "email": "string",\n  "phoneNumber": "string",\n  "oauthProvider": "string",\n  "oauthProviderId": 0,\n  "profilePic": "string"\n}';
+
+    var data;
+
+    if(value === "Facebook"){
+      data = '{"provider": "' + value + '"}';  
+    } else if(value === "Google") {
+      data = '{"provider": "' + value + '", "tokenId": "' + response["tokenId"] + '"}';
+    } else{
+      return;
+    }
+
+    // console.log(data)
 
     var config = {
       method: 'post',
@@ -127,8 +138,9 @@ function Signup() {
     });    
   }
 
-  const handleFacebookOauth = (response) => {
-    console.log(response)
+  const handleOauthError = (response) => {
+    console.log(response);
+    alert("Error: Oauth not working. Contact support for assistance.")
   }
 
   function SignupOptions() {
@@ -141,8 +153,8 @@ function Signup() {
           className="oauth"
           clientId="463592647963-sj2gq0f9vo9d2l0vgn53bt7p1phnb061.apps.googleusercontent.com"
           buttonText="Sign up with Google"
-          onSuccess={handleGoogleOauth}
-          onFailure={handleGoogleOauth}
+          onSuccess={(response) => handleOauth(response, "Google")}
+          onFailure={ handleOauthError }
           cookiePolicy={'single_host_origin'}
         />
         <FacebookLogin
@@ -152,7 +164,7 @@ function Signup() {
           autoLoad={true}
           fields="name,email,picture"
           scope="public_profile,user_friends"
-          callback={handleFacebookOauth}
+          callback={(response) => handleOauth(response, "Facebook")}
           icon={"fa-facebook"} 
         />
         <div class="hr-sect">OR</div>
