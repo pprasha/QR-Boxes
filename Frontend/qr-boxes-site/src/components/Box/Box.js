@@ -8,7 +8,7 @@ import { Form, Card, Modal, Container, Row, Col } from "react-bootstrap";
 import { useParams, useHistory } from "react-router-dom";
 import "./Box.css";
 
-const apiBaseUrl = "http://192.168.0.102:8000";
+const apiBaseUrl = "http://192.168.0.102/api/v1";
 const baseUrl = "https://192.168.0.102:3000";
 
 const box_url = baseUrl + "/box/";

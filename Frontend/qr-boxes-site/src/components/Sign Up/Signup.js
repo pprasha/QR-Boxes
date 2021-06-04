@@ -7,7 +7,7 @@ import "./Signup.css"
 import showPwdImg from './show-password.svg';
 import hidePwdImg from './hide-password.svg';
 
-const apiBaseUrl = "http://192.168.0.102:8000";
+const apiBaseUrl = "http://192.168.0.102/api/v1";
 var axios = require('axios');
 
 function Signup() {
