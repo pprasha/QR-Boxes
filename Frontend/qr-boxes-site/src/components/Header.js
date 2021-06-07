@@ -89,10 +89,10 @@ function Header() {
                             Pricing
                         </Link>
                     </Nav >
-                    <div className="navbar-left">
+                    {/* <div className="navbar-left">
                         <Button variant="success" className="signin" onClick={LogIn}>Log In</Button>{' '}
                         <Button variant="success" className="signup" onClick={SignUp}>Sign Up</Button>{' '}
-                    </div>    
+                    </div>     */}
 
                 </Navbar.Collapse>
             </Navbar>
