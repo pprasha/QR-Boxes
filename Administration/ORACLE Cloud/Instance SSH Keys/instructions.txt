@@ -1,2 +1,2 @@
-Chmod 400: chmod 400 ssh-key-2021-06-01.key
-SSH Command for Instance once inside Private folder: ssh -i ssh-key-2021-06-01.key ubuntu@129.213.120.78
+Chmod 400: chmod 400 ssh-key-2021-06-05.key
+SSH Command for Instance once inside Private folder: ssh -i ssh-key-2021-06-05.key ubuntu@132.145.215.84

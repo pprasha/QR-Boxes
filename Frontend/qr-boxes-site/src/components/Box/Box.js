@@ -8,8 +8,8 @@ import { Form, Card, Modal, Container, Row, Col } from "react-bootstrap";
 import { useParams, useHistory } from "react-router-dom";
 import "./Box.css";
 
-const apiBaseUrl = "http://192.168.0.102/api/v1";
-const baseUrl = "https://192.168.0.102:3000";
+const apiBaseUrl = process.env.REACT_APP_API_BASE_ENDPOINT;
+const baseUrl = process.env.REACT_APP_BASE_ENDPOINT;
 
 const box_url = baseUrl + "/box/";
 
@@ -30,7 +30,7 @@ class Output extends React.Component {
         <h4>Box Id: {this.props.response}</h4>
         <h4>
           Box Url:{" "}
-          <a class="boxUrl" href={box_url + this.props.response}>
+          <a class="boxUrl" href={box_url + this.props.response} rel="noreferrer" target="_blank">
             {" "}
             {box_url + this.props.response}
           </a>
@@ -131,6 +131,7 @@ function Box() {
           previousBoxId = boxId;
           setBoxIdDisplay(boxId);
           setBoxId("");
+          console.log(response)
           var responseData = JSON.parse(JSON.stringify(response.data[0]));
           responseData = responseData.replace(/'/g, '"');
           responseData = JSON.parse(responseData);

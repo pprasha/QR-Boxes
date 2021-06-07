@@ -11,8 +11,8 @@ import Home from "./Home/Home";
 import Box from "./Box/Box";
 import Pricing from "./Pricing/Pricing";
 import "./bootstrap.css"
-import Login from "./Login/Login";
-import Signup from "./Sign Up/Signup";
+// import Login from "./Login/Login";
+// import Signup from "./Sign Up/Signup";
 // import Features from "./Features/Features";
 // import Support from "./Support/Support";
 
@@ -49,15 +49,14 @@ function App() {
             <Header />
             <Features />
           </Route> */}
-          <Route path="/signup">
-            {/* <Header /> */}
+        
+          {/* <Route path="/signup">
             <Signup />
-            {/* <Footer /> */}
           </Route>
           <Route path="/login">
-            {/* <Header /> */}
             <Login />
-          </Route>
+          </Route> */}
+          
           <Route path="/pricing">
             <AlertTerms />
             <Header />

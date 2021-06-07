@@ -87,7 +87,7 @@ def create_qr_code(items: Items):
         box_id = box_id[0:8]
         # print(box_id)
         # items = str(items)[5:]
-        con.execute("INSERT INTO box (box_id, list_box_data, created_time, updated_time) VALUES (\"" + str(box_id) + "\" , \"" + str(items) + "\", now(), now());")
+        con.execute("INSERT INTO box (box_id, list_box_data, created_time, updated_time) VALUES (\"" + str(box_id) + "\" , \"" + str(items.list) + "\", now(), now());")
         # print(items, box_id)
         return {box_id}
 
