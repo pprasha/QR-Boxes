@@ -131,7 +131,7 @@ function Box() {
           previousBoxId = boxId;
           setBoxIdDisplay(boxId);
           setBoxId("");
-          console.log(response)
+          // console.log(response)
           var responseData = JSON.parse(JSON.stringify(response.data[0]));
           responseData = responseData.replace(/'/g, '"');
           responseData = JSON.parse(responseData);
