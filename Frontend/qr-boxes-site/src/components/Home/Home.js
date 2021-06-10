@@ -169,6 +169,10 @@ function Home() {
 
     <div>
       <h1>Welcome To QR Boxes!</h1>
+      <h2>Vision</h2>
+      <p>Our vision is to create a platform/service which allows users to create barcodes and qrcodes for boxes, which can be used to track the contents of the box.</p>
+      <h2>Instructions</h2>
+      <p>To use QR Boxes, just type you items in the box below and click add. When you have added all you items that click "generate code". You will be able to print this code on a 1/2 sticky packaging paper. When you want to see the contents of the box you can go to the box tab and type the id or use a qrcode or barcode scanner to get the same results. When using the qrcode you can scan it using your phone and you will be able to open a link. When using the barcode option you must have you cursor focused on the "box id" input box in the box tab.</p>
       <h3>Get started creating your boxs' QR code below.</h3>
       <div className="arrow bounce"></div>
       {/* <div class="add_list_data">

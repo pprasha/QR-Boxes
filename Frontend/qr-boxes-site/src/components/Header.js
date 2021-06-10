@@ -85,9 +85,9 @@ function Header() {
                             Box
                         </Link>
                         {/* </Nav.Link> */}
-                        <Link className="nav-link " to="/pricing">
+                        {/* <Link className="nav-link " to="/pricing">
                             Pricing
-                        </Link>
+                        </Link> */}
                     </Nav >
                     {/* <div className="navbar-left">
                         <Button variant="success" className="signin" onClick={LogIn}>Log In</Button>{' '}
