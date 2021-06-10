@@ -91,7 +91,7 @@ function Footer() {
                     QR Boxes<span></span>
                   </h5>
                   <p>
-                    We help organize our cusotmers shipments and boxes through
+                    We help organize our customers shipments and boxes through
                     box id's, qr codes, and barcodes.
                   </p>
                 </div>
