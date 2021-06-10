@@ -2,6 +2,7 @@ import React, { useRef } from "react";
 import ReactToPrint from 'react-to-print';
 import QRCode from "qrcode.react";
 import Barcode from "react-barcode";
+import ReactPlayer from "react-player"
 import { Form, Card, Button } from 'react-bootstrap';
 import "./Home.css"
 
@@ -169,6 +170,12 @@ function Home() {
 
     <div>
       <h1>Welcome To QR Boxes!</h1>
+      <h2>Promo Video</h2>
+      <div className="promoVideo">
+        <ReactPlayer
+          url="https://youtu.be/_Tg3MAk0scA"
+        />
+      </div>
       <h2>Vision</h2>
       <p>Our vision is to create a platform/service which allows users to create barcodes and qrcodes for boxes, which can be used to track the contents of the box.</p>
       <h2>Instructions</h2>

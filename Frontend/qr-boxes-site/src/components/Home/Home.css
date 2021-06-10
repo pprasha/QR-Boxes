@@ -15,6 +15,12 @@ h1{
   text-align: center;
 }
 
+.promoVideo {
+  text-align: center;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
 p {
   max-width: 1000px;
   /* margin: 0; */
