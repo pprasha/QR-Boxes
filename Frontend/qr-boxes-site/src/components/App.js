@@ -20,6 +20,9 @@ var alertShow = true;
 
 function AlertTerms() {
   const [show, setShow] = React.useState(alertShow);
+  // window.onbeforeunload = function () {
+  //   window.scrollTo(0, 0);
+  // }
   return (
     <Alert className="alertTerms" show={show} variant="success">
     <Alert.Heading>Terms and Conditions</Alert.Heading>

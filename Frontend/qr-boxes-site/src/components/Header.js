@@ -68,7 +68,7 @@ function Header() {
             <Navbar bg="light" expand="lg">
                 <Navbar.Brand>
                     <Link className="nav-link logo" to="/">
-                        <img src={Logo} alt="QR Boxe's Logo" className="navbar-brand" width="40" height="45" />
+                        <img src={Logo} alt="QR Boxes's Logo" className="navbar-brand" width="40" height="45" />
                         QR Boxes <p className="beta">BETA</p>
                     </Link>
                 </Navbar.Brand>

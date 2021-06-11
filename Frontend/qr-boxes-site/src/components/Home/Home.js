@@ -2,7 +2,8 @@ import React, { useRef } from "react";
 import ReactToPrint from 'react-to-print';
 import QRCode from "qrcode.react";
 import Barcode from "react-barcode";
-import ReactPlayer from "react-player"
+// import ReactPlayer from "react-player"
+import Video from "../../QR-Boxes-Promo.mp4";
 import { Form, Card, Button } from 'react-bootstrap';
 import "./Home.css"
 
@@ -171,15 +172,20 @@ function Home() {
     <div>
       <h1>Welcome To QR Boxes!</h1>
       <h2>Promo Video</h2>
-      <div className="promoVideo">
-        <ReactPlayer
-          url="https://youtu.be/_Tg3MAk0scA"
-        />
-      </div>
+      <a href="https://youtu.be/_Tg3MAk0scA" rel="noreferrer" target="_blank">https://youtu.be/_Tg3MAk0scA</a>
+      {/* <ReactPlayer
+        url="https://youtu.be/_Tg3MAk0scA"
+        className="promoVideo"
+        width="70%"
+        height="70%"
+        controls={true}
+      /> */}
       <h2>Vision</h2>
       <p>Our vision is to create a platform/service which allows users to create barcodes and qrcodes for boxes, which can be used to track the contents of the box.</p>
       <h2>Instructions</h2>
       <p>To use QR Boxes, just type you items in the box below and click add. When you have added all you items that click "generate code". You will be able to print this code on a 1/2 sticky packaging paper. When you want to see the contents of the box you can go to the box tab and type the id or use a qrcode or barcode scanner to get the same results. When using the qrcode you can scan it using your phone and you will be able to open a link. When using the barcode option you must have you cursor focused on the "box id" input box in the box tab.</p>
+      <video className="promoVideo" src={Video} autoPlay="true" muted loop/>
+      <script>window.scrollTo(0, 0);</script>
       <h3>Get started creating your boxs' QR code below.</h3>
       <div className="arrow bounce"></div>
       {/* <div class="add_list_data">
@@ -190,7 +196,7 @@ function Home() {
       </div> */}
       <Form className="add_list_data form-inline" onSubmit={handleList}> 
         <Form.Group>
-          <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" autoFocus={true} />
+          <Form.Control type="text" className="content" id="content" value={value} onChange={e => setValue(e.target.value)} placeholder="List Item" /> {/* autoFocus={true} /> */}
           <button className="add" type="submit">
             Add
           </button>
